@@ -1,12 +1,12 @@
-# Whisper 台灣中文微調 (whisper-tw-finetune)
+# Whisper-finetune-example
 
-基於 OpenAI Whisper 模型，針對台灣中文語音進行微調訓練。支援大規模資料集（數千至上萬小時），內建記憶體優化與音頻快取機制。
+基於 OpenAI Whisper 模型，針對台灣中文語音進行微調訓練。支援大規模資料集（數千至上萬小時），內建記憶體優化與音檔快取機制。
 
 ## 環境需求
 
 - Python 3.10+
 - PyTorch 2.0+（需支援 bf16）
-- NVIDIA GPU（建議 4 張以上用於多卡訓練）
+- NVIDIA GPU
 
 ### Python 套件
 
@@ -57,24 +57,4 @@ bash run_train.sh
 
 預設使用 4 張 GPU 透過 `torchrun` 進行分散式訓練。如需調整 GPU 數量，修改 `CUDA_VISIBLE_DEVICES` 和 `NPROC`。
 
-### 4. 斷點續訓
 
-如果訓練中斷，可在 `run_train.sh` 中啟用 `RESUME_CKPT` 變數：
-
-```bash
-RESUME_CKPT="--resume_from_checkpoint ./output/checkpoint-10000"
-```
-
-## 輸出
-
-訓練完成後，`OUTPUT_DIR` 下會產生：
-
-```
-output/
-├── best_model/                  # eval_loss 最低的模型權重
-├── checkpoint-*/                # 中間 checkpoint（最多保留 3 個）
-├── logs/                        # TensorBoard 日誌
-└── loss_curve_optimized.png     # Loss 曲線圖
-```
-
-最終模型會自動載入 eval_loss 最低的 checkpoint（`load_best_model_at_end=True`），並存到 `best_model/`。
