@@ -1,0 +1,5 @@
+{"audio": {"path": "/path/to/audio/sample_001.wav"}, "sentence": "今天天氣真好", "duration": 3.2}
+{"audio": {"path": "/path/to/audio/sample_002.wav"}, "sentence": "請問高鐵到台北要多久", "duration": 4.5}
+{"audio": {"path": "/path/to/audio/sample_003.wav"}, "sentence": "我想要一杯珍珠奶茶", "duration": 2.8}
+{"audio": {"path": "/path/to/audio/sample_004.wav"}, "sentence": "下一站是台北車站", "duration": 3.0}
+{"audio": {"path": "/path/to/audio/sample_005.wav"}, "sentence": "麻煩幫我查一下明天的班次", "duration": 5.1}
